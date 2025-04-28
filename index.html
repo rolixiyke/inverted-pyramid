@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inverted Pyramid</title>
+  <style>
+    /* Reset some default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Set up the body */
+    body {
+      height: 100vh;
+      background: linear-gradient(to right, #1c1d1d, #182042);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #e4d4d4;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Style for the heading */
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: rgb(215, 215, 240);
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Style for the description paragraph */
+    p:first-of-type {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    /* Style for the pyramid */
+    #pyr-2 {
+      font-family: monospace;
+      white-space: pre;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      color: darkblue;
+      font-size: 1.2rem;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Inverted Pyramid</h1>
+
+  <p>
+    Creating an Inverted Pyramid using HTML and JavaScript and adding style tags to it using Cascading Style Sheet.
+  </p>
+
+  <p id="pyr-2"></p>
+
+  <script>
+    const character = "#";
+    const count = 8;
+    const rows = [];
+
+    function padRow(rowNumber, rowCount) {
+      return " ".repeat(rowCount - rowNumber) + character.repeat(2 * rowNumber - 1) + " ".repeat(rowCount - rowNumber);
+    }
+
+    for (let i = 1; i <= count; i++) {
+      rows.push(padRow(i, count));
+    }
+
+    rows.reverse();
+
+    let result = "";
+    for (const row of rows) {
+      result += row + "\n";
+    }
+
+    document.getElementById("pyr-2").textContent = result;
+  </script>
+
+</body>
+</html>
